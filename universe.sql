@@ -49,8 +49,8 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.comet (
     comet_id integer NOT NULL,
-    name character varying(255),
-    age_in_thousand_years integer
+    name character varying(255) NOT NULL,
+    age_in_thousand_years integer NOT NULL
 );
 
 
@@ -168,7 +168,7 @@ CREATE TABLE public.star (
     galaxy_id integer NOT NULL,
     name character varying(255),
     description text,
-    is_dying boolean
+    is_dying boolean NOT NULL
 );
 
 
@@ -261,12 +261,12 @@ INSERT INTO public.planet OVERRIDING SYSTEM VALUE VALUES (12, 6, 'Galaxy 6 - sta
 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.star OVERRIDING SYSTEM VALUE VALUES (1, 1, 'Galaxy 1 - star 1', NULL, NULL);
-INSERT INTO public.star OVERRIDING SYSTEM VALUE VALUES (2, 2, 'Galaxy 2 - star 1', NULL, NULL);
-INSERT INTO public.star OVERRIDING SYSTEM VALUE VALUES (3, 3, 'Galaxy 3 - star 1', NULL, NULL);
-INSERT INTO public.star OVERRIDING SYSTEM VALUE VALUES (4, 4, 'Galaxy 4 - star 1', NULL, NULL);
-INSERT INTO public.star OVERRIDING SYSTEM VALUE VALUES (5, 5, 'Galaxy 5 - star 1', NULL, NULL);
-INSERT INTO public.star OVERRIDING SYSTEM VALUE VALUES (6, 6, 'Galaxy 6 - star 1', NULL, NULL);
+INSERT INTO public.star OVERRIDING SYSTEM VALUE VALUES (1, 1, 'Galaxy 1 - star 1', NULL, false);
+INSERT INTO public.star OVERRIDING SYSTEM VALUE VALUES (2, 2, 'Galaxy 2 - star 1', NULL, false);
+INSERT INTO public.star OVERRIDING SYSTEM VALUE VALUES (3, 3, 'Galaxy 3 - star 1', NULL, false);
+INSERT INTO public.star OVERRIDING SYSTEM VALUE VALUES (4, 4, 'Galaxy 4 - star 1', NULL, false);
+INSERT INTO public.star OVERRIDING SYSTEM VALUE VALUES (5, 5, 'Galaxy 5 - star 1', NULL, false);
+INSERT INTO public.star OVERRIDING SYSTEM VALUE VALUES (6, 6, 'Galaxy 6 - star 1', NULL, false);
 
 
 --

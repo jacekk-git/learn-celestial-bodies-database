@@ -21,7 +21,7 @@ create table  star(
 	galaxy_id INT NOT NULL,
 	name VARCHAR(255) UNIQUE,
 	description TEXT,
-	is_dying BOOL,
+	is_dying BOOL NOT NULL,
 	PRIMARY KEY(star_id),
 	CONSTRAINT fk_galaxy
 		FOREIGN KEY(galaxy_id)
@@ -54,8 +54,8 @@ create table  moon(
 
 create table comet(
 	comet_id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
-	name VARCHAR(255) UNIQUE,
-	age_in_thousand_years INT,
+	name VARCHAR(255) NOT NULL UNIQUE,
+	age_in_thousand_years INT NOT NULL,
 	PRIMARY KEY (comet_id)
 );
 
@@ -69,8 +69,8 @@ values
 , ('Galaxy 6', 1, 6666, 6655, 'Description 2', false)
 ;
 
-insert into star(galaxy_id, name)
-select galaxy_id, concat(name, ' - star 1') 
+insert into star(galaxy_id, name, is_dying)
+select galaxy_id, concat(name, ' - star 1'), false
 from galaxy;
 
 insert into planet(star_id, name, radius_in_km)
